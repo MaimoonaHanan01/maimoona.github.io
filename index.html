@@ -128,7 +128,7 @@ nav.scrolled {
 .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
 .nav-links a {
   font-family: var(--mono); font-size: 0.68rem;
-  color: var(--charcoal-3); text-decoration: none;
+  color: var(--charcoal-2); text-decoration: none;
   letter-spacing: 0.1em; text-transform: uppercase;
   transition: color 0.2s;
 }
@@ -138,7 +138,7 @@ nav.scrolled {
   padding: 7px 18px; border-radius: 4px;
   transition: background 0.2s !important;
 }
-.nav-contact:hover { background: var(--cherry-hover) !important; color: #fff !important; }
+.nav-contact:hover { background: var(--cherry-hover); color: #fff !important; }
 
 /* ═══════════════════════════════════════════════
    SECTION BASE
@@ -262,7 +262,7 @@ section + section { border-top: 1px solid var(--border); }
 }
 .hero-meta-item {
   font-family: var(--mono); font-size: 0.7rem;
-  color: var(--charcoal-3); display: flex; align-items: center; gap: 8px;
+  color: var(--charcoal-2); display: flex; align-items: center; gap: 8px;
 }
 .hero-meta-item span { color: var(--cherry); font-size: 0.9em; }
 
@@ -365,12 +365,6 @@ section + section { border-top: 1px solid var(--border); }
    To add a real screenshot: remove the .p-img-placeholder div
    and add: <img src="your-screenshot.png" alt="Project Name" style="width:100%;display:block;" />
    To embed a YouTube video instead: see .p-video-wrap below ── */
-.p-img-placeholder {
-  width: 100%; aspect-ratio: 16/9;
-  background: var(--white); border-bottom: 1px solid var(--border);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-  color: var(--charcoal-3);
-}
 .p-img-icon { font-size: 1.8rem; opacity: 0.4; }
 .p-img-hint { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.5; }
 /* ── VIDEO PLACEHOLDER (optional) ──
@@ -443,7 +437,7 @@ section + section { border-top: 1px solid var(--border); }
 }
 .img-empty span { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.6; }
 
-/* Portrait slots (calligraphy, painting) */
+/* Portrait slots (painting, etc.) */
 .img-slot.portrait { aspect-ratio: 3/4; }
 
 /* ═══════════════════════════════════════════════
@@ -605,6 +599,34 @@ footer span { color: var(--cherry); }
   .nav-links { display: none; }
   .hero-name { font-size: 4rem; }
 }
+
+.startup-logo { overflow: hidden; position: relative; } /* add to your existing rule */
+
+.sneak-peek-toggle {
+  margin-top: 18px; display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--cherry); background: none; border: 1px solid rgba(196,43,54,0.3);
+  border-radius: 4px; padding: 8px 16px; cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.sneak-peek-toggle:hover { background: var(--cherry-pale); border-color: var(--cherry); }
+.sneak-peek-toggle .chevron { font-size: 0.65rem; transition: transform 0.25s; display: inline-block; }
+.sneak-peek-toggle.open .chevron { transform: rotate(90deg); }
+.sneak-peek-panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, margin-top 0.4s ease;
+}
+.sneak-peek-panel.open { max-height: 700px; margin-top: 18px; }
+.sneak-peek-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.sneak-peek-grid .img-slot { aspect-ratio: 9/16; }
+.peek-features { list-style: none; margin-top: 14px; }
+.peek-features li {
+  font-size: 0.85rem; color: var(--charcoal-2);
+  padding: 4px 0 4px 16px; position: relative; line-height: 1.6;
+}
+.peek-features li::before { content: '✓'; position: absolute; left: 0; color: var(--cherry); font-size: 0.78rem; }
+
 </style>
 </head>
 <body class="locked">
@@ -619,10 +641,9 @@ footer span { color: var(--cherry); }
   <div class="intro-words" id="intro-words">
     <span class="intro-word" id="w0">data scientist</span>
     <span class="intro-word" id="w1">photographer</span>
-    <span class="intro-word" id="w2">calligrapher</span>
-    <span class="intro-word" id="w3">startup founder</span>
-    <span class="intro-word" id="w4">wildlife rescuer</span>
-    <span class="intro-word" id="w5">community builder</span>
+    <span class="intro-word" id="w2">startup founder</span>
+    <span class="intro-word" id="w3">wildlife rescuer</span>
+    <span class="intro-word" id="w4">community builder</span>
   </div>
   <div class="intro-name" id="intro-name">Maimoona <em>Hanan</em></div>
 </div>
@@ -677,7 +698,7 @@ footer span { color: var(--cherry); }
       </h1>
       <div class="hero-rule"></div>
       <p class="hero-tagline">
-        <strong>Data Scientist & AI Builder</strong> who also shoots photographs, crafts calligraphy, rescues wildlife, and builds startups. Doing everything — intentionally.
+        From AI models to community initiatives, I turn ambitious ideas into reality.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-fill">View Work</a>
@@ -687,8 +708,8 @@ footer span { color: var(--cherry); }
 
     <div class="hero-aside">
       <div class="hero-stat">
-        <div class="hero-stat-num">4+</div>
-        <div class="hero-stat-label">AI Projects</div>
+        <div class="hero-stat-num">10+</div>
+        <div class="hero-stat-label">Projects</div>
       </div>
       <div class="hero-stat">
         <div class="hero-stat-num">₨20K</div>
@@ -713,7 +734,6 @@ footer span { color: var(--cherry); }
   <div class="ticker">
     <span class="ticker-item">Data Scientist <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Photographer <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Calligrapher <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Startup Founder <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Wildlife Rescuer <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Community Builder <span class="ticker-dot">·</span></span>
@@ -722,7 +742,6 @@ footer span { color: var(--cherry); }
     <span class="ticker-item">Video Editor <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Data Scientist <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Photographer <span class="ticker-dot">·</span></span>
-    <span class="ticker-item">Calligrapher <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Startup Founder <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Wildlife Rescuer <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Community Builder <span class="ticker-dot">·</span></span>
@@ -730,7 +749,7 @@ footer span { color: var(--cherry); }
     <span class="ticker-item">Painter <span class="ticker-dot">·</span></span>
     <span class="ticker-item">Video Editor <span class="ticker-dot">·</span></span>
   </div>
-</div>>
+</div>
 
 <!-- ═══════════════════════════════════
      ABOUT
@@ -740,30 +759,30 @@ footer span { color: var(--cherry); }
   <h2 class="sec-title">More than a data scientist.<br><em>A little of everything.</em></h2>
   <div class="about-grid reveal">
     <div class="about-text">
-      <p>I'm a <strong>Data Science undergraduate at FAST NUCES</strong> (Class of 2027) based in Islamabad. My technical work spans NLP research, AI systems, and full-stack engineering — and outside of code, I'm equally at home behind a camera, at a calligraphy desk, or advocating for injured wildlife.</p>
+      <p>I'm a <strong>Data Science undergraduate at FAST NUCES</strong> (Class of 2027) based in Islamabad. My technical work spans NLP research, AI systems, and full-stack engineering — and outside of code, I'm equally at home behind a camera, at a desk, or advocating for injured wildlife.</p>
       <p>As <strong>Founder of Parwarish</strong>, I'm building an AI-enabled mobile platform that puts user experience first, secured with national startup funding. I also co-founded a <strong>Wildlife Rescue</strong> initiative with the belief that compassion and technology aren't mutually exclusive.</p>
       <p>I care deeply about building things that matter — whether that's a machine learning pipeline, a community fundraiser, or a hand-lettered piece of art.</p>
     </div>
     <div class="about-cards">
       <div class="about-card">
-        <strong>🎓 BS Data Science</strong>
+        <strong> BS Data Science</strong>
         <span>FAST NUCES, Islamabad — 2023 to 2027</span>
       </div>
       <div class="about-card">
-        <strong>🚀 Startup Founder × 2</strong>
-        <span>Parwarish (AI) · Wildlife Rescue Initiative</span>
+        <strong> Startup Founder × 2</strong>
+        <span>Parwarish · Wildlife Rescue Initiative</span>
       </div>
       <div class="about-card">
-        <strong>🧠 Research Focus</strong>
-        <span>NLP · Low-resource languages · Urdu QA</span>
+        <strong> Research Focus</strong>
+        <span>AI · NLP · Deep Learning · Real-World Problem Solving</span>
       </div>
       <div class="about-card">
-        <strong>🎨 Creative Practice</strong>
-        <span>Photography · Calligraphy · Painting · Video Editing</span>
+        <strong> Creative Practice</strong>
+        <span>Video Editing · Graphic Designing · Photography · Videography · Calligraphy · Painting </span>
       </div>
       <div class="about-card">
-        <strong>🐾 Wildlife Rescue</strong>
-        <span>Rescuing & rehabilitating injured wildlife in Pakistan</span>
+        <strong> Community Impact</strong>
+        <span>Over 10 million people reached through initiatives, workshops, and online content.</span>
       </div>
     </div>
   </div>
@@ -779,15 +798,12 @@ footer span { color: var(--cherry); }
 
     <!-- STARTUP 1: PARWARISH -->
     <div class="startup-card reveal">
-      <!-- ── Replace "P" with your Parwarish logo:
-           <img src="parwarish-logo.png" alt="Parwarish" style="width:56px;height:56px;border-radius:12px;object-fit:cover;" />
-      ── -->
-      <div class="startup-logo">P</div>
-      <div class="startup-badge">Runner-Up · National Incubation</div>
+      <div class="startup-logo"><img src="parwarish.jpeg" alt="Parwarish" style="width:56px;height:56px;border-radius:12px;object-fit:cover;" /></div>
+      <div class="startup-badge">Runner-Up · National Incubation Centre</div>
       <div class="startup-name">Parwarish</div>
-      <div class="startup-tagline">AI-enabled platform for scalable, user-centered digital solutions</div>
+      <div class="startup-tagline">Supporting Parents, Shaping Generations.</div>
       <p class="startup-desc">
-        Building a mobile-first AI platform that puts user experience and scalability at its core. Leads product development, data workflows, and backend integration across a cross-functional team.
+        Parwarish is a culturally grounded parenting support platform that helps Pakistani parents navigate modern parenting challenges through trusted guidance, community support, and expert-backed resources.
       </p>
       <div class="startup-meta">
         <span class="startup-pill hi">Founded 2025</span>
@@ -796,151 +812,356 @@ footer span { color: var(--cherry); }
         <span class="startup-pill">AI / Data</span>
         <span class="startup-pill">Product Development</span>
       </div>
+
+      <!-- ── OPTIONAL: a couple of bullets on what the app actually does ── -->
+      <ul class="peek-features">
+        <li>Personalized parenting guidance by child's age & context</li>
+        <li>Community Q&A moderated for cultural sensitivity</li>
+        <li>Expert-reviewed articles on digital-age parenting</li>
+      </ul>
+
+      <button class="sneak-peek-toggle" onclick="toggleSneakPeek('parwarish', this)">
+        <span class="peek-label">Sneak Peek</span> <span class="chevron">▸</span>
+      </button>
+      <div class="sneak-peek-panel" id="peek-parwarish">
+        <div class="sneak-peek-grid">
+          <!-- ── Replace each with: <img src="screenshots/parwarish-1.png" alt="..." /> ── -->
+          <div class="img-slot"><img src="parwarish-1.png" alt="Parwarish Screenshot 1" /></div>
+          <div class="img-slot"><img src="parwarish-2.png" alt="Parwarish Screenshot 2" /></div>
+          <div class="img-slot"><img src="parwarish-3.png" alt="Parwarish Screenshot 3" /></div>
+        </div>
+      </div>
     </div>
 
-    <!-- STARTUP 2: WILDLIFE RESCUE -->
-    <!-- ── Fill in your Wildlife Rescue details below ── -->
+    <!-- STARTUP 2: PAKWILD -->
     <div class="startup-card reveal d1">
-      <!-- ── Replace "W" with your Wildlife Rescue logo ── -->
-      <div class="startup-logo">W</div>
+      <div class="startup-logo"><img src="pakwild.png" alt="PakWild" style="width:56px;height:56px;border-radius:12px;object-fit:cover;" /></div>
       <div class="startup-badge">Active Initiative</div>
-      <div class="startup-name">Wildlife Rescue</div>
-      <div class="startup-tagline">Rescuing, rehabilitating, and protecting Pakistan's wildlife</div>
+      <div class="startup-name">PakWild</div>
+      <div class="startup-tagline">Focuses on connecting people and wildlife services.</div>
       <p class="startup-desc">
-        <!-- ── Add your Wildlife Rescue description here:
-             What species do you rescue? Where do you operate?
-             What services/impact does the initiative have?
-             Example: "A grassroots rescue network operating across Islamabad
-             and Rawalpindi, providing emergency care and rehabilitation for
-             injured wild birds, reptiles, and mammals."
-        ── -->
-        A mission-driven startup focused on wildlife rescue and rehabilitation in Pakistan. Combines community outreach with hands-on rescue operations to protect local fauna.
+        PakWild is a Pakistan-focused wildlife rescue, citizen science, and conservation platform. It is a digital ecosystem for wildlife rescue, biodiversity monitoring, and conservation collaboration across Pakistan.
       </p>
       <div class="startup-meta">
-        <!-- ── Update the year and add your role ── -->
-        <span class="startup-pill hi">Founded 2025</span>
+        <span class="startup-pill hi">Founded 2026</span>
         <span class="startup-pill hi">Founder</span>
         <span class="startup-pill">Conservation</span>
         <span class="startup-pill">Community</span>
         <span class="startup-pill">Animal Welfare</span>
       </div>
+
+      <ul class="peek-features">
+        <li>Real-time rescue reporting and dispatch</li>
+        <li>Biodiversity sighting map for citizen scientists</li>
+        <li>Directory connecting rescuers, vets, and shelters</li>
+      </ul>
+
+      <button class="sneak-peek-toggle" onclick="toggleSneakPeek('pakwild', this)">
+        <span class="peek-label">Sneak Peek</span> <span class="chevron">▸</span>
+      </button>
+      <div class="sneak-peek-panel" id="peek-pakwild">
+        <div class="sneak-peek-grid">
+          <div class="img-slot"><img src="pakwild1.png" alt="PakWild Screenshot 1" /></div>
+          <div class="img-slot"><img src="pakwild2.png" alt="PakWild Screenshot 2" /></div>
+          <div class="img-slot"><img src="pakwild3.png" alt="PakWild Screenshot 3" /></div>
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
-
 <!-- ═══════════════════════════════════
      TECH PROJECTS
 ═══════════════════════════════════ -->
 <section id="projects">
   <div class="sec-label">03 — Projects</div>
-  <h2 class="sec-title">AI, NLP &<br><em>systems I've built.</em></h2>
-  <div class="projects-grid">
+  <h2 class="sec-title">Systems I've built.<br><em>Across multiple domains.</em></h2>
 
-    <!-- PROJECT 1 -->
-    <div class="p-card reveal">
-      <!-- ── ADD SCREENSHOT: replace this whole .p-img-placeholder div with:
-           <img src="screenshots/aeronet.png" alt="AeroNet Lite" style="width:100%;aspect-ratio:16/9;object-fit:cover;" />
-           OR embed a video:
-           <iframe width="100%" style="aspect-ratio:16/9;border:none;" src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe>
-      ── -->
-      <div class="p-img-placeholder">
-        <div class="p-img-icon">📸</div>
-        <div class="p-img-hint">Add Screenshot</div>
-      </div>
-      <div class="p-body">
-        <div class="p-num">PROJECT 01</div>
-        <div class="p-name">AeroNet Lite — Autonomous Drone Delivery</div>
-        <p class="p-desc">Drone delivery simulation using A* routing, fleet optimization, and real-time replanning with demand forecasting and anomaly detection.</p>
-        <div class="p-tags">
-          <span class="tag tag-hi">Python</span>
-          <span class="tag">A* Routing</span>
-          <span class="tag">Fleet Optimization</span>
-          <span class="tag">Dashboard</span>
+  <!-- FRONTEND -->
+  <div class="project-section">
+    <h3 class="project-title">Frontend Projects</h3>
+    <div class="projects-grid">
+
+      <!-- PROJECT 01 -->
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="fdss.png" alt="Project Name" style="width:100%;display:block;" />
         </div>
-        <div class="p-links">
-          <!-- ── Replace # with your GitHub link ── -->
-          <a href="#" class="p-link">GitHub →</a>
-          <!-- ── Uncomment and add live demo link if available:
-          <a href="#" class="p-link">Live Demo →</a>
-          ── -->
+        <div class="p-body">
+          <div class="p-num">PROJECT 01</div>
+          <div class="p-name">Fast Data Science Society</div>
+          <p class="p-desc">Frontend-based society platform UI built for academic and community engagement with structured navigation and responsive layout.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">fdss</span>
+            <span class="tag tag-hi">Frontend</span>
+            <span class="tag tag-hi">web development</span>
+            <span class="tag tag-hi">responsive design</span>
+            <span class="tag tag-hi">fast nuces</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/FAST-DATA-SCIENCE-SOCIETY-WEBSITE-2024.git" class="p-link">GitHub →</a>
+            <a href="https://youtu.be/GDctCJEShRE" class="p-link">Live Demo →</a>
+            <a href="https://fdssisb.com/" class="p-link">Website →</a>
+          </div>
         </div>
       </div>
+
+      <!-- PROJECT 02 -->
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="pp.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 02</div>
+          <div class="p-name">Pixel Panorama</div>
+          <p class="p-desc">Photography-centric frontend platform designed for visual storytelling, seamlessly connecting clients with professional photographers across multiple niches.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Frontend</span>
+            <span class="tag tag-hi">html</span>
+            <span class="tag tag-hi">css</span>
+            <span class="tag tag-hi">javascript</span>
+            <span class="tag tag-hi">ui/ux design</span>
+          </div>
+          <div class="p-links">
+            <a href="#" class="p-link">GitHub →</a>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- PROJECT 2 -->
-    <div class="p-card reveal d1">
-      <!-- ── ADD SCREENSHOT ── -->
-      <div class="p-img-placeholder">
-        <div class="p-img-icon">📸</div>
-        <div class="p-img-hint">Add Screenshot</div>
-      </div>
-      <div class="p-body">
-        <div class="p-num">PROJECT 02</div>
-        <div class="p-name">Cross-Lingual QA System (Urdu)</div>
-        <p class="p-desc">Urdu question-answering system using XLM-RoBERTa for low-resource language understanding, with full Hugging Face training pipelines.</p>
-        <div class="p-tags">
-          <span class="tag tag-hi">NLP</span>
-          <span class="tag">XLM-RoBERTa</span>
-          <span class="tag">Hugging Face</span>
-          <span class="tag">PyTorch</span>
-        </div>
-        <div class="p-links">
-          <a href="#" class="p-link">GitHub →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 3 -->
-    <div class="p-card reveal">
-      <!-- ── ADD SCREENSHOT ── -->
-      <div class="p-img-placeholder">
-        <div class="p-img-icon">📸</div>
-        <div class="p-img-hint">Add Screenshot</div>
-      </div>
-      <div class="p-body">
-        <div class="p-num">PROJECT 03</div>
-        <div class="p-name">Distributed Semantic Search System</div>
-        <p class="p-desc">ANN-based semantic retrieval using dense embeddings and HNSW indexing with parallel shard-based retrieval and latency analysis.</p>
-        <div class="p-tags">
-          <span class="tag tag-hi">Semantic Search</span>
-          <span class="tag">HNSW</span>
-          <span class="tag">Distributed</span>
-          <span class="tag">Python</span>
-        </div>
-        <div class="p-links">
-          <a href="#" class="p-link">GitHub →</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 4 -->
-    <div class="p-card reveal d1">
-      <!-- ── ADD SCREENSHOT ── -->
-      <div class="p-img-placeholder">
-        <div class="p-img-icon">📸</div>
-        <div class="p-img-hint">Add Screenshot</div>
-      </div>
-      <div class="p-body">
-        <div class="p-num">PROJECT 04</div>
-        <div class="p-name">Movie Community Management System</div>
-        <p class="p-desc">Full-stack movie platform with watchlists, reviews, social features, relational schemas, REST APIs, and optimized queries.</p>
-        <div class="p-tags">
-          <span class="tag tag-hi">Full Stack</span>
-          <span class="tag">SQL</span>
-          <span class="tag">REST API</span>
-          <span class="tag">React</span>
-        </div>
-        <div class="p-links">
-          <a href="#" class="p-link">GitHub →</a>
-          <a href="#" class="p-link">Live Demo →</a>
-        </div>
-      </div>
-    </div>
-
   </div>
-</section>
 
+  <!-- FULL STACK -->
+  <div class="project-section">
+    <h3 class="project-title">Frontend + Backend Systems</h3>
+    <div class="projects-grid">
+
+      <!-- PROJECT 03 -->
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="db1.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 03</div>
+          <div class="p-name">Movie Community Manager</div>
+          <p class="p-desc">This platform is a full-stack movie recommendation and social network designed to transform movie discovery into an interactive, community-driven experience.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Full Stack</span>
+            <span class="tag tag-hi">backend</span>
+            <span class="tag tag-hi">html</span>
+            <span class="tag tag-hi">css</span>
+            <span class="tag tag-hi">javascript</span>
+            <span class="tag tag-hi">ui/ux design</span>
+            <span class="tag tag-hi">express.js</span>
+            <span class="tag tag-hi">node.js</span>
+            <span class="tag tag-hi">mysql</span>
+            <span class="tag tag-hi">bcrypt</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Watchly_-A-movie-community-manager.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= PROBABILITY & STATISTICS ================= -->
+  <div class="project-section">
+    <h3 class="project-title">Probability & Statistics</h3>
+    <div class="projects-grid">
+<div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="prob.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 04</div>
+          <div class="p-name">Probability and Statistics Project</div>
+          <p class="p-desc">An R-based Multiple Linear Regression (MLR) analysis exploring the impact of behavioral, cognitive, and environmental factors (procrastination, focus span, and class attendance) on student CGPA at FAST University. Includes statistical modeling scripts, summary diagnostics, predictive tracking, and data visualizations.  </p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Statistics</span>
+            <span class="tag tag-hi">R</span>
+        <span class="tag tag-hi">multiple-linear-regression</span>
+        <span class="tag tag-hi">predictive-modeling</span>
+        <span class="tag tag-hi">statistical-analysis</span>
+        <span class="tag tag-hi">data science</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Probability-and-Statistics-Impact-of-various-factors-on-cgpa.git"class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="adv.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 05</div>
+          <div class="p-name">Advanced Statistics: Inflation-Forecasting in Pakistan</div>
+          <p class="p-desc">Project is modeling and forecasting the national inflation rate of Pakistan (measured as the year-over-year percentage change in the Consumer Price Index, or CPI) using datasets spanning from 1980 to 2024, comparing a classical time-series model (ARIMA) against several machine learning frameworks (Lasso, Ridge, Elastic Net, SVR, and Random Forest).</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Statistics</span>
+            <span class="tag tag-hi">R</span>
+            <span class="tag tag-hi">time-series-analysis</span>
+            <span class="tag tag-hi">machine-learning</span>
+          </div>
+           <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Advanced-Statistics-Inflation-Forecasting-in-Pakistan.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= AI / NLP / DEEP LEARNING ================= -->
+  <div class="project-section">
+    <h3 class="project-title">AI, NLP & Deep Learning Systems</h3>
+    <div class="projects-grid">
+
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="nlp.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 06</div>
+          <div class="p-name">Cross-Lingual Question Answering System</div>
+          <p class="p-desc">NLP system for Urdu-English question answering using transformer-based XLM-RoBERTa architecture.</p>
+       <div class="p-tags">
+  <span class="tag tag-hi">NLP</span>
+  <span class="tag tag-hi">Question-Answering</span>
+  <span class="tag tag-hi">Transformers</span>
+  <span class="tag tag-hi">Urdu-NLP</span>
+  <span class="tag tag-hi">LoRA-PEFT</span>
+  <span class="tag tag-hi">mBERT</span>
+  <span class="tag tag-hi">XLM-RoBERTa</span>
+  <span class="tag tag-hi">Deep-Learning</span>
+  <span class="tag tag-hi">Cross-Lingual-Transfer</span>
+</div>
+          <div class="p-links">
+            <a href=" https://github.com/MaimoonaHanan01/Supervised-Deep-Learning-for-Cross-Lingual-Question-Answering-in-Low-Resource-Urdu.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
+        </div>
+         
+        </div>
+      </div>
+
+     <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="dashboard.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 07</div>
+          <div class="p-name">AeroNet Lite — Autonomous Drone Simulation</div>
+          <p class="p-desc">AI-based drone routing and delivery simulation using A* pathfinding, optimization, and demand forecasting models.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">AI Systems</span>
+            <span class="tag tag-hi">Autonomous</span>
+            <span class="tag tag-hi">pathfinding</span>
+            <span class="tag tag-hi">A*</span>
+            <span class="tag tag-hi">Algorithms</span>
+          </div>
+           <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/AI-Aeronet-Drone-Simulator.git" class="p-link">GitHub →</a>
+            <a href="https://youtu.be/kYiO-W4vSy4" class="p-link">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= PDC ================= -->
+  <div class="project-section">
+    <h3 class="project-title">Parallel & Distributed Computing</h3>
+    <div class="projects-grid">
+
+      <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="pdc.png" alt="Project Name" style="width:100%;display:block;" />
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 08</div>
+          <div class="p-name">Distributed Semantic Search Engine</div>
+          <p class="p-desc">Scalable ANN-based retrieval system using HNSW indexing and distributed shard-based architecture.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">PDC</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Distributed-Semantic-Search-Engine.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= DATA SCIENCE ================= -->
+  <div class="project-section">
+    <h3 class="project-title">Data Science: Analysis & Visualization</h3>
+    <div class="projects-grid">
+
+      <div class="p-card reveal">
+        <div class="p-img-placeholder">
+          <div class="p-img-icon">📸</div>
+          <div class="p-img-hint">Add Screenshot</div>
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 09</div>
+          <div class="p-name">Imtiaz Mall Electronics — Customer Retention & Predictive Analytics</div>
+          <p class="p-desc">Data-driven analysis addressing declining retail sales in the electronics department. Developed a complete pipeline featuring data cleaning, EDA, Linear Regression for spending trends, Decision Tree classification for customer types, and K-Means clustering for customer segmentation</p>
+          <div class="p-tags">
+           <span class="tag primary">Python</span><span class="tag">Machine Learning</span><span class="tag">Customer Clustering</span><span class="tag">EDA</span><span class="tag">Data Preprocessing</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-card reveal d1">
+        <div class="p-img-placeholder">
+          <div class="p-img-icon">📸</div>
+          <div class="p-img-hint">Add Screenshot</div>
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 10</div>
+          <div class="p-name">Data Analysis & Visualization </div>
+          <p class="p-desc">Predictive analytics and ML-based insights with structured reporting and dashboard visualization.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Data Science</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= GAMES ================= -->
+  <div class="project-section">
+    <h3 class="project-title">Games & Interactive Systems</h3>
+    <div class="projects-grid">
+
+      <div class="p-card reveal">
+        <div class="p-img-placeholder">
+          <div class="p-img-icon">📸</div>
+          <div class="p-img-hint">Add Screenshot</div>
+        </div>
+        <div class="p-body">
+          <div class="p-num">PROJECT 11</div>
+          <div class="p-name">Game Development Project</div>
+          <p class="p-desc">Interactive game system focusing on logic design, user experience, and real-time gameplay mechanics.</p>
+          <div class="p-tags">
+            <span class="tag tag-hi">Game Dev</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
 <!-- ═══════════════════════════════════
      CREATIVE PORTFOLIO
 ═══════════════════════════════════ -->
@@ -950,7 +1171,6 @@ footer span { color: var(--cherry); }
 
   <div class="tab-nav">
     <button class="tab-btn active" onclick="switchTab('photography',this)">📷 Photography</button>
-    <button class="tab-btn" onclick="switchTab('calligraphy',this)">✒ Calligraphy</button>
     <button class="tab-btn" onclick="switchTab('painting',this)">🎨 Painting</button>
   </div>
 
@@ -986,32 +1206,7 @@ footer span { color: var(--cherry); }
     </div>
   </div>
 
-  <!-- CALLIGRAPHY TAB -->
-  <!-- ── Use portrait orientation for calligraphy pieces ── -->
-  <div class="tab-panel" id="tab-calligraphy">
-    <div class="creative-grid">
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-      <div class="img-slot portrait">
-        <div class="img-empty"><span>✒</span><span>Add Piece</span></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PAINTING TAB -->
+<!-- PAINTING TAB -->
   <div class="tab-panel" id="tab-painting">
     <div class="creative-grid wide">
       <div class="img-slot" style="aspect-ratio:1/1;">
@@ -1280,7 +1475,7 @@ footer span { color: var(--cherry); }
   const bar     = document.getElementById('intro-bar');
   const words   = document.getElementById('intro-words');
   const name    = document.getElementById('intro-name');
-  const wEls    = [0,1,2,3,4,5].map(i => document.getElementById('w'+i));
+  const wEls    = [0,1,2,3,4].map(i => document.getElementById('w'+i));
 
   function exitIntro() {
     intro.classList.add('exit');
@@ -1294,7 +1489,7 @@ footer span { color: var(--cherry); }
   setTimeout(() => bar.classList.add('grow'), 200);
   wEls.forEach((w, i) => setTimeout(() => w.classList.add('show'), 800 + i * 320));
 
-  const afterWords = 800 + 6 * 320 + 400;
+  const afterWords = 800 + 5 * 320 + 400;
   setTimeout(() => words.classList.add('fade'), afterWords);
   setTimeout(() => name.classList.add('show'), afterWords + 350);
   setTimeout(exitIntro, afterWords + 350 + 1100);
@@ -1322,6 +1517,13 @@ function switchTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + id).classList.add('active');
   btn.classList.add('active');
+}
+
+function toggleSneakPeek(id, btn) {
+  const panel = document.getElementById('peek-' + id);
+  const isOpen = panel.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.querySelector('.peek-label').textContent = isOpen ? 'Hide Sneak Peek' : 'Sneak Peek';
 }
 </script>
 </body>
