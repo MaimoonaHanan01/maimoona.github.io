@@ -627,9 +627,35 @@ footer span { color: var(--cherry); }
 }
 .peek-features li::before { content: '✓'; position: absolute; left: 0; color: var(--cherry); font-size: 0.78rem; }
 
+.p-img-hint {
+  height: 200px;
+  overflow: hidden;
+}
+.p-img-hint img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 </style>
 </head>
 <body class="locked">
+    <!-- GREETING BUBBLE -->
+<div id="greeting" style="
+  position:fixed; bottom:32px; left:50%; transform:translateX(-50%) translateY(30px);
+  z-index:99998; opacity:0; pointer-events:none;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display:flex; align-items:center; gap:10px;
+  background:#FAF7F4; border:1px solid #E8E1D8;
+  border-radius:100px; padding:12px 24px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  font-family:'DM Sans',sans-serif; font-size:1rem; color:#252525;
+  white-space:nowrap;">
+  <span id="wave" style="font-size:1.4rem; display:inline-block;">👋</span>
+  <span>Hi there! Welcome to my portfolio</span>
+  <span style="color:#C42B36; font-weight:500;">✨</span>
+</div>
 
 <!-- ═══════════════════════════════════
      INTRO OVERLAY
@@ -1089,6 +1115,8 @@ footer span { color: var(--cherry); }
           <p class="p-desc">Scalable ANN-based retrieval system using HNSW indexing and distributed shard-based architecture.</p>
           <div class="p-tags">
             <span class="tag tag-hi">PDC</span>
+            <span class="tag tag-hi">Parallel and distributed computing</span>
+            <span class="tag tag-hi">ANN</span>
           </div>
           <div class="p-links">
             <a href="https://github.com/MaimoonaHanan01/Distributed-Semantic-Search-Engine.git" class="p-link">GitHub →</a>
@@ -1105,32 +1133,42 @@ footer span { color: var(--cherry); }
     <h3 class="project-title">Data Science: Analysis & Visualization</h3>
     <div class="projects-grid">
 
-      <div class="p-card reveal">
-        <div class="p-img-placeholder">
-          <div class="p-img-icon">📸</div>
-          <div class="p-img-hint">Add Screenshot</div>
+     <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="ids.png" alt="Project Name" style="width:100%;display:block;" />
         </div>
         <div class="p-body">
           <div class="p-num">PROJECT 09</div>
           <div class="p-name">Imtiaz Mall Electronics — Customer Retention & Predictive Analytics</div>
           <p class="p-desc">Data-driven analysis addressing declining retail sales in the electronics department. Developed a complete pipeline featuring data cleaning, EDA, Linear Regression for spending trends, Decision Tree classification for customer types, and K-Means clustering for customer segmentation</p>
           <div class="p-tags">
-           <span class="tag primary">Python</span><span class="tag">Machine Learning</span><span class="tag">Customer Clustering</span><span class="tag">EDA</span><span class="tag">Data Preprocessing</span>
+           <span class="tag tag-hi">Python</span><span class="tag tag-hi">Machine Learning</span><span class="tag tag-hi">Customer Clustering</span><span class="tag tag-hi">EDA</span><span class="tag tag-hi">Data Preprocessing</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Imtiaz-Mall-Electronics-Customer-Retention-Predictive-Analytics.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
           </div>
         </div>
       </div>
 
-      <div class="p-card reveal d1">
-        <div class="p-img-placeholder">
-          <div class="p-img-icon">📸</div>
-          <div class="p-img-hint">Add Screenshot</div>
+       <div class="p-card reveal">
+        <div class="p-img-hint">
+          <img src="dav.png" alt="Project Name" style="width:100%;display:block;" />
         </div>
         <div class="p-body">
           <div class="p-num">PROJECT 10</div>
-          <div class="p-name">Data Analysis & Visualization </div>
-          <p class="p-desc">Predictive analytics and ML-based insights with structured reporting and dashboard visualization.</p>
+          <div class="p-name">Comprehensive Analysis of U.S. Crime Patterns Using NIBRS Data (2000–2022) </div>
+          <p class="p-desc">A data-driven analysis of crime trends across the United States using FBI NIBRS data from 2000–2022. The project explores temporal, geographic, demographic, and offense-type patterns through Python-based data analysis and visualization techniques to uncover insights for law enforcement and policymakers.</p>
           <div class="p-tags">
             <span class="tag tag-hi">Data Science</span>
+            <span class="tag tag-hi">Data Analysis</span>
+            <span class="tag tag-hi">Python</span>
+            <span class="tag tag-hi">NIBR</span>
+            <span class="tag tag-hi">Crime Analytics</span>
+          </div>
+          <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Comprehensive-Analysis-of-U.S.-Crime-Patterns-Using-NIBRS-Data-2000-2022-.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
           </div>
         </div>
       </div>
@@ -1144,16 +1182,19 @@ footer span { color: var(--cherry); }
     <div class="projects-grid">
 
       <div class="p-card reveal">
-        <div class="p-img-placeholder">
-          <div class="p-img-icon">📸</div>
-          <div class="p-img-hint">Add Screenshot</div>
+        <div class="p-img-hint">
+          <img src="pc.png" alt="Project Name" style="width:100%;display:block;" />
         </div>
         <div class="p-body">
           <div class="p-num">PROJECT 11</div>
-          <div class="p-name">Game Development Project</div>
-          <p class="p-desc">Interactive game system focusing on logic design, user experience, and real-time gameplay mechanics.</p>
+          <div class="p-name">Game Development Project - Unity Plane Crash Game</div>
+          <p class="p-desc">The project focuses on recreating the classic "Plane Crash" game using the Unity engine. It aims to provide an improved experience over the traditional gameplay style by introducing smoother touch controls, optimized performance, and modern pixelated visuals.</p>
           <div class="p-tags">
             <span class="tag tag-hi">Game Dev</span>
+          </div>
+            <div class="p-links">
+            <a href="https://github.com/MaimoonaHanan01/Android-Plane-Crash-Game.git" class="p-link">GitHub →</a>
+            <a href="" class="p-link">Live Demo →</a>
           </div>
         </div>
       </div>
@@ -1184,24 +1225,25 @@ footer span { color: var(--cherry); }
     <div class="creative-grid">
       <div class="img-slot">
         <div class="img-empty">
-          <span>📷</span>
-          <span>Add Photo</span>
+          <img src="6.jpg" alt="Waxing moon visible in a clear blue daytime sky, creating a calm and peaceful atmosphere" />
         </div>
       </div>
       <div class="img-slot">
-        <div class="img-empty"><span>📷</span><span>Add Photo</span></div>
+        <div class="img-empty">
+          <img src="1.jpg" alt="Tall yellow sunflowers standing against a dusky sky in an outdoor field, conveying a quiet late evening mood." />
+        </div>
       </div>
       <div class="img-slot">
-        <div class="img-empty"><span>📷</span><span>Add Photo</span></div>
+        <div class="img-empty"><img src="2.jpg" alt="Sunset sky with soft orange and blue clouds above silhouetted trees and streetlights, creating a calm evening atmosphere" /></div>
       </div>
       <div class="img-slot">
-        <div class="img-empty"><span>📷</span><span>Add Photo</span></div>
+        <div class="img-empty"><img src="5.jpg" alt="Fluffy ginger cat sitting on gravel and dirt looking calmly forward in soft outdoor light" /></div>
       </div>
       <div class="img-slot">
-        <div class="img-empty"><span>📷</span><span>Add Photo</span></div>
+        <div class="img-empty"><img src="3.jpg" alt="Two ducklings standing on grass in an outdoor field, one light brown and one dark black, with a calm gentle mood" /></div>
       </div>
       <div class="img-slot">
-        <div class="img-empty"><span>📷</span><span>Add Photo</span></div>
+        <div class="img-empty"><img src="4.jpg" alt="Two ducklings standing on grass in an outdoor field, one light brown and one dark black, with a calm gentle mood" /></div>
       </div>
     </div>
   </div>
@@ -1233,20 +1275,12 @@ footer span { color: var(--cherry); }
   <h2 class="sec-title">Motion, cuts,<br><em>and storytelling.</em></h2>
   <div class="video-grid reveal">
 
-    <!-- ── VIDEO EMBED ──
-         Replace the .video-placeholder div with your video:
-         Option A — YouTube:
-           <iframe width="100%" style="aspect-ratio:16/9;border-radius:12px;border:none;"
-             src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
-         Option B — Self-hosted:
+    
+        
            <video controls style="width:100%;border-radius:12px;">
-             <source src="your-video.mp4" type="video/mp4" />
+             <source src="civics final.mp4" type="video/mp4" />
            </video>
-    ── -->
-    <div class="video-placeholder">
-      <div class="video-play">▶</div>
-      <div class="video-hint">Add your showreel<br>or best edit here</div>
-    </div>
+    
 
     <div class="video-text">
       <h3>Visual Storytelling</h3>
@@ -1301,11 +1335,11 @@ footer span { color: var(--cherry); }
     <!-- NaSCon Card -->
     <div class="community-card">
       <div class="community-card-icon">🎯</div>
-      <h4>NaSCon '25 — National Tech Conference</h4>
+      <h4>Rahehaq</h4>
       <ul>
-        <li>Head of Event for ESCAPE 404 — flagship competition</li>
-        <li>Coordinated logistics, participants, and judging panels</li>
-        <li>Managed multi-team event operations under NaSCon umbrella</li>
+        <li>Head of Donations Team</li>
+        <li>Fundraising activities insisde and outside of Fast</li>
+        <li>Organized fundraising drives with PKR 10M+ cumulative impact</li>
       </ul>
     </div>
 
@@ -1360,6 +1394,20 @@ footer span { color: var(--cherry); }
       <ul class="t-list">
         <li>Developed responsive websites using HTML, CSS, JavaScript, Bootstrap, and Shopify.</li>
         <li>Collaborated with local businesses to gather requirements and deliver tailored solutions.</li>
+      </ul>
+    </div>
+    <div class="t-item reveal d2">
+      <div class="t-dot"></div>
+      <div class="t-head">
+        <div>
+          <div class="t-role">NasCon Escape 404 head</div>
+          <div class="t-co">Fast NuCES- flagship Event</div>
+        </div>
+        <span class="t-date">2025 – Present</span>
+      </div>
+      <ul class="t-list">
+        <li>multi-team collaboration for event planning and execution</li>
+        <li>Managed logistics, participants, and judging panels</li>
       </ul>
     </div>
     <div class="t-item reveal">
